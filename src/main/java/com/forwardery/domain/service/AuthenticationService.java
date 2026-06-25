@@ -20,7 +20,7 @@ public class AuthenticationService {
     private final UsersRepository usersRepository;
     private final TokenManager tokenService;
     private final JwtUtil jwtUtil;
-    @Value("${spring.profiles.active}")
+    @Value("${spring.profiles.active:main}")
     private String activeProfile;
 
     public AuthenticationService(UsersRepository usersRepository,
