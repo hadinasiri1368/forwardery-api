@@ -7,14 +7,12 @@ import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-@Table(name = "AHA_PERSON")
+@Table(name = "PERSON")
 @Entity(name = "person")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Person extends BaseEntity{
     @Column(name = "IS_COMPANY", columnDefinition = "NUMBER(1)", nullable = false)
     private Boolean isCompany;

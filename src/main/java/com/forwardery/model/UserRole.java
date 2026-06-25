@@ -5,14 +5,12 @@ import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-@Table(name = "AHA_USER_ROLE")
+@Table(name = "USER_ROLE")
 @Entity(name = "userRole")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserRole extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "F_USER_ID")

@@ -2,6 +2,7 @@ package com.forwardery.util;
 
 
 import com.forwardery.constants.Consts;
+import com.forwardery.domain.service.AuthenticationService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

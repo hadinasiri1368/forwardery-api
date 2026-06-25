@@ -33,6 +33,8 @@ public class AuthenticationService {
 
     public String login(LoginDto loginDto) throws Exception {
         Users user = getUser(loginDto.getUsername(), loginDto.getPassword());
+        user.setInsertedDateTime(null);
+        user.setUpdatedDateTime(null);
         return tokenService.generateToken(String.valueOf(user.getId()), user);
     }
 
@@ -49,8 +51,7 @@ public class AuthenticationService {
             throw new BaseException(AuthenticationExceptionType.USERNAME_PASSWORD_INVALID);
         }
         if (!activeProfile.equals("dev")) {
-            boolean validated = AppUtils.encodePassword(password)
-                    .equalsIgnoreCase(user.get().getPassword());
+            boolean validated = password.equalsIgnoreCase(user.get().getPassword());
             if (!validated) {
                 throw new BaseException(AuthenticationExceptionType.USERNAME_PASSWORD_INVALID);
             }

@@ -12,6 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Locale;
 
 @Component
 public class AppUtils {
@@ -60,7 +61,7 @@ public class AppUtils {
     }
 
     public static String getMessageFromMessageSource(String key, Object... params) {
-        return messageSource.getMessage(key, params, LocaleContextHolder.getLocale());
+        return messageSource.getMessage(key, params, Locale.ROOT);
     }
 
     public static boolean checkNationalCode(String nationalCode) {

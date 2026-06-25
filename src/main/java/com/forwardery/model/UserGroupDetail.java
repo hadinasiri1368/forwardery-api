@@ -5,14 +5,12 @@ import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-@Table(name = "AHA_USER_GROUP_DETAIL")
+@Table(name = "USER_GROUP_DETAIL")
 @Entity(name = "userGroupDetail")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserGroupDetail extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "F_USER_ID")

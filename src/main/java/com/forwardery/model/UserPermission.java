@@ -5,14 +5,12 @@ import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-@Table(name = "AHA_USER_PERMISSION")
+@Table(name = "USER_PERMISSION")
 @Entity(name = "userPermission")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserPermission extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "F_USER_ID")

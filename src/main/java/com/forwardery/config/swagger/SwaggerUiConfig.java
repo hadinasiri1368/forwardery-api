@@ -1,4 +1,4 @@
-package com.forwardery.swagger;
+package com.forwardery.config.swagger;
 
 import com.forwardery.constants.Consts;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -21,7 +21,6 @@ public class SwaggerUiConfig implements WebMvcConfigurer {
 
     @Bean
     public OpenAPI customOpenAPI() {
-        String tenantHeaderName = Consts.HEADER_TENANT_PARAM_NAME;
         String securitySchemeName = "Bearer Authentication";
 
         return new OpenAPI()
@@ -31,17 +30,12 @@ public class SwaggerUiConfig implements WebMvcConfigurer {
                         .version("1.0")
                         .description("API documentation with JWT authentication and tenant header"))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
-                .addSecurityItem(new SecurityRequirement().addList(tenantHeaderName))
                 .components(new io.swagger.v3.oas.models.Components()
                         .addSecuritySchemes(securitySchemeName, new SecurityScheme()
                                 .name(securitySchemeName)
                                 .type(SecurityScheme.Type.HTTP)
                                 .scheme("bearer")
-                                .bearerFormat("JWT"))
-                        .addSecuritySchemes(tenantHeaderName, new SecurityScheme()
-                                .name(tenantHeaderName)
-                                .type(SecurityScheme.Type.APIKEY)
-                                .in(SecurityScheme.In.HEADER)));
+                                .bearerFormat("JWT")));
     }
 
     @Override
