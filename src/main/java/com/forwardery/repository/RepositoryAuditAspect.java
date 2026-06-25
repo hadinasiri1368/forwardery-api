@@ -1,0 +1,60 @@
+package com.forwardery.repository;
+
+import com.forwardery.config.security.RequestContext;
+import com.forwardery.log.EntityChangedEvent;
+import com.forwardery.model.BaseEntity;
+import lombok.RequiredArgsConstructor;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
+
+import java.util.Collection;
+
+@Aspect
+@Component
+@RequiredArgsConstructor
+public class RepositoryAuditAspect {
+
+    private final ApplicationEventPublisher publisher;
+
+    @Around("execution(* org.springframework.data.jpa.repository.JpaRepository+.save*(..)) || " +
+            "execution(* org.springframework.data.jpa.repository.JpaRepository+.delete*(..))")
+    public Object intercept(ProceedingJoinPoint joinPoint) throws Throwable {
+
+        Object result = joinPoint.proceed();
+
+        String username = String.valueOf(RequestContext.getUserId());
+        String uuId = RequestContext.getUuid().toString();
+
+        String operation = joinPoint.getSignature().getName();
+        Object entity = joinPoint.getArgs()[0];
+
+        publisher.publishEvent(
+                new EntityChangedEvent(
+                        username,
+                        null,
+                        operation,
+                        entity.getClass().getSimpleName(),
+                        extractId(entity),
+                        entity,
+                        uuId
+                )
+        );
+
+        return result;
+    }
+
+    private Object extractId(Object entity) {
+        if (entity instanceof BaseEntity be) {
+            return be.getId();
+        } else if (entity instanceof Collection<?> coll) {
+            return coll.stream()
+                    .filter(e -> e instanceof BaseEntity)
+                    .map(e -> ((BaseEntity) e).getId())
+                    .toList();
+        }
+        return null;
+    }
+}

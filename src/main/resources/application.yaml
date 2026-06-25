@@ -1,3 +1,30 @@
+server:
+  port: 8080
+
+
 spring:
   application:
     name: forwardery
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/FREE
+    username: my_schema
+    password: my_password
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+corsConfig:
+  allowedOrigin: http://localhost:${server.port}
+
+jwt:
+  secretKey: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMDYzODUzNywiaWF0IjoxNzAwNjM4NTM3fQ.cakxNusKVbUYfXIO_ldis-uQtQMxRO58Tktr31X6O_I
+  expirationMinutes: 60
+
+authentication:
+  paths-to-bypass: /api-docs/**, /api-docs.yaml, /swagger-ui/**, /swagger-ui.html, /swagger-resources/**, /webjars/**, /favicon.ico, /management/**,/login/**
