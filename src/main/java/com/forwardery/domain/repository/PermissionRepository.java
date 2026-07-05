@@ -24,12 +24,4 @@ public interface PermissionRepository extends BaseRepository<Permission, Long> {
             """)
     List<UserPermissionDto> findAllPermissionFromRole();
 
-    @Query("""
-                select p,ugd.user.id as userId from userGroupDetail ugd
-                    inner join userGroup ug on ug.id=ugd.userGroup.id
-                    inner join userGroupRole ugr on ugr.userGroup.id=ugd.userGroup.id
-                    inner join rolePermission rp on rp.role.id=ugr.role.id
-                    inner join permission p on p.id=rp.permission.id
-            """)
-    List<UserPermissionDto> findAllPermissionFromGroup();
 }

@@ -71,7 +71,6 @@ public class PermissionService extends BaseService<Permission, Long> {
 
     private List<Permission> getUserPermissions(Long userId) {
         List<UserPermissionDto> userPermissionDtos = repository.findAllPermissionFromUser();
-        userPermissionDtos.addAll(repository.findAllPermissionFromGroup());
         userPermissionDtos.addAll(repository.findAllPermissionFromRole());
 
 
