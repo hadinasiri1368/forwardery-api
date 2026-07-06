@@ -17,15 +17,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class PermissionService extends BaseService<Permission, Long> {
+public class PermissionService extends BaseService<Permission, Long, PermissionRepository> {
     @Value("${authentication.paths-to-bypass}")
     private List<String> pathsToBypass;
     private static final AntPathMatcher pathMatcher = new AntPathMatcher();
-    private final PermissionRepository repository;
 
     public PermissionService(PermissionRepository repository) {
-        super(repository, Permission.class);
-        this.repository = repository;
+        super(repository,Permission.class);
     }
 
     public boolean isAuthenticationRequired(HttpServletRequest request) {

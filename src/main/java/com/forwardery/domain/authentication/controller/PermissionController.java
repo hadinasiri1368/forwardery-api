@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Validated
 @RequestMapping(Consts.DEFAULT_PREFIX_API_URL + Consts.DEFAULT_VERSION_API_URL + "/authentication/permission")
-public class PermissionController extends BaseController<Permission, Long, PermissionDto> {
-    public PermissionController(BaseService<Permission, Long> service, PermissionMapper mapper) {
+public class PermissionController extends BaseController<Permission, Long, PermissionDto, PermissionRepository> {
+    public PermissionController(BaseService<Permission, Long, PermissionRepository> service, PermissionMapper mapper) {
         super(service, mapper);
     }
 }

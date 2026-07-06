@@ -47,11 +47,11 @@ public class AuthenticationService {
 
     private Users getUser(String username, String password) {
         Optional<Users> user = usersRepository.findByUsername(username);
-        if (!user.isPresent()) {
+        if (user.isEmpty()) {
             throw new BaseException(AuthenticationExceptionType.USERNAME_PASSWORD_INVALID);
         }
         if (!activeProfile.equals("dev")) {
-            boolean validated = password.equalsIgnoreCase(user.get().getPassword());
+            boolean validated = AppUtils.encodePassword(password).equalsIgnoreCase(user.get().getPassword());
             if (!validated) {
                 throw new BaseException(AuthenticationExceptionType.USERNAME_PASSWORD_INVALID);
             }
