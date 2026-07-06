@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.forwardery.constants.DateFormat;
 import com.forwardery.constants.TimeFormat;
-import com.forwardery.domain.service.AuthenticationService;
+import com.forwardery.domain.authentication.service.AuthenticationService;
 import com.forwardery.exceptions.BaseException;
 import com.forwardery.exceptions.ExceptionDto;
 import com.forwardery.log.impl.Log4jLogger;

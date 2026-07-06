@@ -1,9 +1,9 @@
 package com.forwardery.config.security;
 
-import com.forwardery.domain.service.PermissionService;
+import com.forwardery.domain.authentication.service.PermissionService;
 import com.forwardery.exceptions.AuthenticationExceptionType;
 import com.forwardery.exceptions.BaseException;
-import com.forwardery.model.Permission;
+import com.forwardery.domain.authentication.model.Permission;
 import com.forwardery.util.AppUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.authorization.AuthorizationDecision;
@@ -11,8 +11,6 @@ import org.springframework.security.authorization.AuthorizationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.function.Supplier;
 

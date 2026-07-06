@@ -1,6 +1,6 @@
 package com.forwardery.config.security;
 
-import com.forwardery.model.Users;
+import com.forwardery.domain.authentication.model.Users;
 import com.forwardery.util.AppUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

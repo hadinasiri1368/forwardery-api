@@ -1,8 +1,8 @@
-package com.forwardery.domain.mapper;
+package com.forwardery.domain.authentication.mapper;
 
-import com.forwardery.domain.dto.PermissionDto;
+import com.forwardery.domain.authentication.dto.PermissionDto;
 import com.forwardery.mapper.BaseMapper;
-import com.forwardery.model.Permission;
+import com.forwardery.domain.authentication.model.Permission;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

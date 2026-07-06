@@ -1,16 +1,15 @@
-package com.forwardery.model;
+package com.forwardery.domain.authentication.model;
 
+import com.forwardery.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Table(name = "Role_PERMISSION")
-@Entity(name = "rolePermission")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class RolePermission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "F_ROLE_ID")

@@ -1,9 +1,9 @@
-package com.forwardery.domain.service;
+package com.forwardery.domain.authentication.service;
 
-import com.forwardery.domain.dto.UserPermissionDto;
-import com.forwardery.domain.repository.PermissionRepository;
-import com.forwardery.model.Permission;
-import com.forwardery.model.Users;
+import com.forwardery.domain.authentication.dto.UserPermissionDto;
+import com.forwardery.domain.authentication.repository.PermissionRepository;
+import com.forwardery.domain.authentication.model.Permission;
+import com.forwardery.domain.authentication.model.Users;
 import com.forwardery.service.BaseService;
 import com.forwardery.util.AppUtils;
 import jakarta.servlet.http.HttpServletRequest;

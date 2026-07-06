@@ -1,17 +1,16 @@
-package com.forwardery.model;
+package com.forwardery.domain.authentication.model;
 
+import com.forwardery.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Table(name = "USER_PERMISSION")
-@Entity(name = "userPermission")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserPermission extends BaseEntity{
+@Entity
+public class UserPermission extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "F_USER_ID")
     private Users user;

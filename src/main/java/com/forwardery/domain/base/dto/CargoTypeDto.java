@@ -1,6 +1,5 @@
-package com.forwardery.domain.dto;
+package com.forwardery.domain.base.dto;
 
-import com.forwardery.model.Permission;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class UserPermissionDto {
-    private Permission permission;
-    private Long userId;
+public class CargoTypeDto {
+    private Long id;
+    private String name;
 }

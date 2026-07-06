@@ -1,6 +1,6 @@
 package com.forwardery.config.security;
 
-import com.forwardery.model.Users;
+import com.forwardery.domain.authentication.model.Users;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

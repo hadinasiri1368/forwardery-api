@@ -1,12 +1,12 @@
-package com.forwardery.domain.service;
+package com.forwardery.domain.authentication.service;
 
 import com.forwardery.config.security.RequestContext;
 import com.forwardery.constants.Consts;
-import com.forwardery.domain.dto.LoginDto;
-import com.forwardery.domain.repository.UsersRepository;
+import com.forwardery.domain.authentication.dto.LoginDto;
+import com.forwardery.domain.authentication.repository.UsersRepository;
 import com.forwardery.exceptions.AuthenticationExceptionType;
 import com.forwardery.exceptions.BaseException;
-import com.forwardery.model.Users;
+import com.forwardery.domain.authentication.model.Users;
 import com.forwardery.tokenManager.TokenManager;
 import com.forwardery.util.AppUtils;
 import com.forwardery.util.JwtUtil;

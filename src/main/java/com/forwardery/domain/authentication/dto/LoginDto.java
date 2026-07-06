@@ -1,6 +1,6 @@
-package com.forwardery.domain.dto;
+package com.forwardery.domain.authentication.dto;
 
-import com.forwardery.model.Users;
+import com.forwardery.domain.authentication.model.Users;
 import com.forwardery.validator.*;
 import lombok.*;
 

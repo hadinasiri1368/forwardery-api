@@ -1,19 +1,18 @@
-package com.forwardery.model;
+package com.forwardery.domain.authentication.model;
 
+import com.forwardery.model.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Table(name = "PERSON")
-@Entity(name = "person")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person extends BaseEntity{
+@Entity
+public class Person extends BaseEntity {
     @Column(name = "IS_COMPANY", columnDefinition = "NUMBER(1)", nullable = false)
     private Boolean isCompany;
     @Column(name = "FIRST_NAME", columnDefinition = "VARCHAR2(100)", nullable = false)

@@ -1,7 +1,7 @@
 package com.forwardery.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.forwardery.domain.service.PermissionService;
+import com.forwardery.domain.authentication.service.PermissionService;
 import com.forwardery.filter.AuthenticationFilter;
 import com.forwardery.tokenManager.TokenManager;
 import lombok.AllArgsConstructor;

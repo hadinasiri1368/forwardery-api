@@ -1,7 +1,7 @@
-package com.forwardery.domain.repository;
+package com.forwardery.domain.authentication.repository;
 
 
-import com.forwardery.model.Users;
+import com.forwardery.domain.authentication.model.Users;
 import com.forwardery.repository.BaseRepository;
 import org.springframework.stereotype.Repository;
 

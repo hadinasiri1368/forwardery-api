@@ -1,4 +1,4 @@
-package com.forwardery.domain.dto;
+package com.forwardery.domain.authentication.dto;
 
 import lombok.*;
 

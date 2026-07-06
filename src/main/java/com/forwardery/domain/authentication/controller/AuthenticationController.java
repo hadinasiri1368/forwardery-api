@@ -1,8 +1,8 @@
-package com.forwardery.domain.controller;
+package com.forwardery.domain.authentication.controller;
 
 import com.forwardery.constants.Consts;
-import com.forwardery.domain.dto.LoginDto;
-import com.forwardery.domain.service.AuthenticationService;
+import com.forwardery.domain.authentication.dto.LoginDto;
+import com.forwardery.domain.authentication.service.AuthenticationService;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
