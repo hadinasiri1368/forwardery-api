@@ -22,13 +22,13 @@ public class Users extends BaseEntity {
     @Size(max = 50)
     @NotNull
     @Nationalized
-    @Column(name = "FIRST_NAME", nullable = false, length = 50)
+    @Column(name = "NAME", nullable = false, length = 50)
     private String name;
 
     @Size(max = 50)
     @NotNull
     @Nationalized
-    @Column(name = "LAST_NAME", nullable = false, length = 50)
+    @Column(name = "FAMILY", nullable = false, length = 50)
     private String family;
     @Column(name = "IS_ACTIVE", columnDefinition = "NUMBER(1)", nullable = false)
     private Boolean isActive;
