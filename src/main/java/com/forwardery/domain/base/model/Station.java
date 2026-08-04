@@ -10,7 +10,7 @@ import org.hibernate.annotations.Nationalized;
 @Getter
 @Setter
 @Entity
-@Table(name = "station", schema = "SWALLET")
+@Table(name = "station", schema = "dbo")
 public class Station extends BaseEntity {
 
     @Size(max = 50)
