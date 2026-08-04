@@ -4,7 +4,7 @@ import com.forwardery.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "USER_PERMISSION", schema = "SWALLET")
+@Table(name = "USER_PERMISSION", schema = "dbo")
 @Getter
 @Setter
 @AllArgsConstructor

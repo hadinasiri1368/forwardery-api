@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Table(name = "PERMISSION", schema = "SWALLET")
+@Table(name = "PERMISSION", schema = "dbo")
 @Getter
 @Setter
 @AllArgsConstructor

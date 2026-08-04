@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.Nationalized;
 
-@Table(name = "USERS" ,schema = "SWALLET")
+@Table(name = "USERS" ,schema = "dbo")
 @Getter
 @Setter
 @AllArgsConstructor
