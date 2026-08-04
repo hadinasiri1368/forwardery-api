@@ -18,9 +18,9 @@ public interface PermissionRepository extends BaseRepository<Permission, Long> {
     List<UserPermissionDto> findAllPermissionFromUser();
 
     @Query("""
-                select new com.forwardery.domain.authentication.dto.UserPermissionDto(p,ur.user.id) from UserRole ur
-                    inner join RolePermission rp on rp.role.id=ur.role.id
-                    inner join Permission  p on p.id=rp.permission.id
+                select new com.forwardery.domain.authentication.dto.UserPermissionDto(p,up.user.id)
+                from UserPermission up
+                    inner join Permission  p on p.id=up.permission.id
             """)
     List<UserPermissionDto> findAllPermissionFromRole();
 

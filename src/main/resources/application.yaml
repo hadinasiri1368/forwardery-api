@@ -6,10 +6,15 @@ spring:
   application:
     name: forwardery
   datasource:
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://;serverName=localhost;databaseName=forwardery;encrypt=true;trustServerCertificate=true;
-    username: sa
-    password: asd123!@#
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    url: jdbc:sqlserver://;serverName=localhost;databaseName=forwardery;encrypt=true;trustServerCertificate=true;
+#    username: sa
+#    password: asd123!@#
+    url: 'jdbc:oracle:thin:@//192.168.102.35:1521/switchdb'
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: neousr
+    password: Aa123456
+    type: 'com.zaxxer.hikari.HikariDataSource'
   jpa:
     open-in-view: false
     hibernate:

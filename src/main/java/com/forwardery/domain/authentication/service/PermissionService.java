@@ -1,9 +1,11 @@
 package com.forwardery.domain.authentication.service;
 
 import com.forwardery.domain.authentication.dto.UserPermissionDto;
+import com.forwardery.domain.authentication.model.UserPermission;
 import com.forwardery.domain.authentication.repository.PermissionRepository;
 import com.forwardery.domain.authentication.model.Permission;
 import com.forwardery.domain.authentication.model.Users;
+import com.forwardery.domain.authentication.repository.UsersPermissionRepository;
 import com.forwardery.service.BaseService;
 import com.forwardery.util.AppUtils;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,9 +24,12 @@ public class PermissionService extends BaseService<Permission, Long, PermissionR
     @Value("${authentication.paths-to-bypass}")
     private List<String> pathsToBypass;
     private static final AntPathMatcher pathMatcher = new AntPathMatcher();
+    private final UsersPermissionRepository usersPermissionRepository;
 
-    public PermissionService(PermissionRepository repository) {
-        super(repository,Permission.class);
+    public PermissionService(PermissionRepository repository,
+                             UsersPermissionRepository usersPermissionRepository) {
+        super(repository, Permission.class);
+        this.usersPermissionRepository = usersPermissionRepository;
     }
 
     public boolean isAuthenticationRequired(HttpServletRequest request) {
@@ -77,5 +83,13 @@ public class PermissionService extends BaseService<Permission, Long, PermissionR
                 .map(UserPermissionDto::getPermission)
                 .collect(Collectors.toList());
         return permissions;
+    }
+
+    public void assignPermissionsToUser(Long userId, List<Long> permissionIds) {
+        List<UserPermission> list = new ArrayList<>();
+        for (Long permissionId : permissionIds) {
+            list.add(new UserPermission(new Users(userId), new Permission(permissionId)));
+        }
+        usersPermissionRepository.saveAll(list);
     }
 }

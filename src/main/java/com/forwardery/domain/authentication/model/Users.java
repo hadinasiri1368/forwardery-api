@@ -8,23 +8,27 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.Nationalized;
 
-@Table(name = "USERS")
+@Table(name = "USERS" ,schema = "SWALLET")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Users extends BaseEntity {
+    public Users(Long id) {
+        this.id = id;
+    }
+
     @Size(max = 50)
     @NotNull
     @Nationalized
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "FIRST_NAME", nullable = false, length = 50)
     private String name;
 
     @Size(max = 50)
     @NotNull
     @Nationalized
-    @Column(name = "family", nullable = false, length = 50)
+    @Column(name = "LAST_NAME", nullable = false, length = 50)
     private String family;
     @Column(name = "IS_ACTIVE", columnDefinition = "NUMBER(1)", nullable = false)
     private Boolean isActive;
